@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Budget Tracker</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-gray-100 to-white min-h-screen flex items-start justify-center py-12">
+
+  <div class="bg-white w-full max-w-md p-6 rounded-xl shadow-lg">
+    <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">Budget Tracker</h1>
+
+    <!-- Transaction Form -->
+    <form id="transaction-form" class="flex flex-col gap-4">
+      <input type="text" id="description" placeholder="Description"
+        class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+      <input type="number" id="amount" placeholder="Amount"
+        class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+      <button type="submit"
+        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded transition duration-200">
+        Add Transaction
+      </button>
+    </form>
+
+    <!-- Filter Buttons -->
+    <div class="flex justify-between mt-6 space-x-2">
+      <button onclick="filterTransactions('all')"
+        class="flex-1 border border-gray-300 px-3 py-1 rounded hover:bg-blue-500 hover:text-white">All</button>
+      <button onclick="filterTransactions('income')"
+        class="flex-1 border border-gray-300 px-3 py-1 rounded hover:bg-green-500 hover:text-white">Income</button>
+      <button onclick="filterTransactions('expense')"
+        class="flex-1 border border-gray-300 px-3 py-1 rounded hover:bg-red-500 hover:text-white">Expense</button>
+    </div>
+
+    <!-- Transaction List -->
+    <ul id="transaction-list" class="mt-6 space-y-3"></ul>
+
+    <!-- Summary Section -->
+    <div class="mt-6 border-t pt-4 text-sm text-gray-700 space-y-1">
+      <p>Income: <span id="total-income" class="font-semibold text-green-600">KSH0</span></p>
+      <p>Expenses: <span id="total-expense" class="font-semibold text-red-600">KSH0</span></p>
+      <p>Balance: <span id="balance" class="font-semibold text-blue-600">KSH0</span></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
